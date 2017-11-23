@@ -7,6 +7,7 @@
  ?>
 </h2>
 <h3>Dateien uploaden</h3>
+<h4>Maximale Uploadgröße: 1MB</h4>
 
 <?php echo $data ?>
 

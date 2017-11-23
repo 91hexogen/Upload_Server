@@ -88,18 +88,29 @@ class Controller {
     $datei = $_FILES['userfile']['name'];
     $uploadfile = SELF::UPATH.$datei;
 
+    //Größe einschränken
+    if($_FILES['userfile']['size'] >= 1048576){
+      $this->data = "Ihre Datei ist größer als 1 MB";
+    } //bzw. php.ini upload_max_filessize Standard 2MB
+
+
+
     //MIME Type erkennen
-    $zugelassen = array('image/jpeg','image/jpg','image/png','image/gif','application/pdf');
+    $zugelassen = array('image/jpeg','image/png','image/gif','application/pdf','video/mpeg');
     if(!in_array($_FILES['userfile']['type'],$zugelassen)){
-      $this->data = "Ihre Dateiformat ist nicht zugelassen!";
+      $this->data = "Ihr Dateiformat ist nicht zugelassen!";
     }
 
     if($this->data == ""){
+
+
+
+
     // Upload starten
     if(move_uploaded_file($_FILES['userfile']['tmp_name'],$uploadfile)){
         $this->data = "Upload erfolgreich!";
     }else{
-        $data = "Upload ist fehlgeschlagen!";
+        $this->data = "Upload ist fehlgeschlagen!";
         switch ($_FILES['userfile']['error']) {
           case 1:$this->data = "Server lässt diese Größe nicht zu!";
             break;
@@ -116,11 +127,12 @@ class Controller {
           case 8:$this->data = "Eine PHP-Erweiterung verhindert das Speichern!";
             break;
             default: ;
-          }
-      }
-    }
+          }//end switch
+      }//if moveloaded
+    }//upload zulassen
     $this->tpl = "user_upload"; //TMPL wird gesetzt
-    }
+  }//end setUpload
+
 
 
 }
