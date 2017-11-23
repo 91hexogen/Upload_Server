@@ -1,0 +1,59 @@
+
+body{
+  margin:0;
+  background-color: #666666;
+  text-align: center;
+}
+
+
+header{
+  background: url(../img/back1.jpg) no-repeat center center fixed;
+  height:150px;
+  /*background-size: cover;*/
+  margin-top: 0px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  /*color:#1e88e5; light blue*/
+  color:#FFFFFF;
+  text-shadow: 0 0 35px #FFFFFF, 0 0 10px #FFFFFF;
+
+}
+
+.login{
+
+  background: grey;
+  margin-top: 190px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+main{
+  padding: 10px;
+}
+
+header h1{
+  margin:0;
+  /*padding:20px 0 0 20px;*/
+}
+
+footer{
+  position:fixed;
+  background: url(../img/back1.jpg) no-repeat center center fixed;
+  height:30px;
+  bottom: 0;
+  width: 100%;
+  background-size: cover;
+  font-family: 'Josefin Sans', sans-serif;
+  /*color:#1e88e5; light blue*/
+  color:#FFFFFF;
+  text-align: center;
+}
+
+
+/* media-query gelten ab 500px (browserbreite überprüfen)*/
+@media only screen and (min-width:500px){
+  header{
+    height:180px;
+  }
+}
